@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# repomix output
+repomix-output.xml
+repomix-output.xml*
+
+# python venv / caches
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

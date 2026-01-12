@@ -1,0 +1,81 @@
+# Git / repo internals
+.git/
+.git/**
+
+# Python caches
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Virtual envs
+.venv/
+venv/
+ENV/
+env/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.egg
+MANIFEST
+
+# Test / type / lint caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage/
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# IDEs / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Large ML artifacts (common)
+checkpoints/
+ckpt/
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.onnx
+*.tflite
+*.h5
+*.pkl
+*.joblib
+
+# Numpy / data dumps (optional; remove if you WANT them included)
+*.npy
+*.npz
+
+# Data folders (optional; remove if your repo stores important text data here)
+data/
+datasets/
+results/
+outputs/
+runs/
+wandb/
+
+# Secrets (never include)
+.env
+.env.*
+**/*.pem
+**/*.key
+**/*secret*
