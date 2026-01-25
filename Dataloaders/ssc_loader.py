@@ -5,6 +5,7 @@ Spoken commands encoded through artificial cochlea.
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import List, Tuple
 
 import torch
@@ -49,40 +50,66 @@ def get_ssc_loaders(
     num_workers: int = 2,
     save_to: str = "./data",
     time_bins: int = 100,
+    use_cache: bool = True,
+    cache_path: Path | None = None,
+    force_recreate: bool = False,
 ):
     """
-    Get SSC train and test data loaders.
+    Get SSC train and test data loaders with optional disk caching.
+
+    Args:
+        batch_size: Batch size for training
+        num_workers: Number of worker processes for data loading
+        save_to: Directory to download/store dataset
+        time_bins: Number of time bins for temporal encoding
+        use_cache: If True, use cached converted data if available
+        cache_path: Path to cache file (default: ./data/ssc_cache.pt)
+        force_recreate: If True, ignore existing cache and recreate
 
     Returns:
         train_loader, test_loader: PyTorch DataLoader objects
     """
-    if not hasattr(tonic.datasets, "SSC"):
-        raise AttributeError("tonic.datasets missing SSC dataset class")
+    if cache_path is None:
+        cache_path = Path(save_to) / "ssc_cache.pt"
 
-    def _build_dataset(split: str):
-        try:
-            return tonic.datasets.SSC(save_to=save_to, train=(split == "train"))
-        except TypeError:
-            return tonic.datasets.SSC(save_to=save_to, split=split)
-
-    train_dataset = _build_dataset("train")
-    test_dataset = _build_dataset("test")
-
-    sensor_size = train_dataset.sensor_size
-    channels = sensor_size[0] if isinstance(sensor_size, tuple) else sensor_size
-
-    train_data = []
-    for events, label in tqdm(train_dataset, desc="SSC train -> dense"):
-        train_data.append((_events_to_dense(events, channels, time_bins), label))
-
-    test_data = []
-    for events, label in tqdm(test_dataset, desc="SSC test -> dense"):
-        test_data.append((_events_to_dense(events, channels, time_bins), label))
-
-    if hasattr(train_dataset, "classes"):
-        num_classes = len(train_dataset.classes)
+    # Try to load from cache
+    if use_cache and not force_recreate and cache_path.exists():
+        print(f"Loading cached SSC data from {cache_path}")
+        (train_data, test_data, sensor_size, num_classes) = torch.load(cache_path)
     else:
-        num_classes = len({label for _, label in train_data})
+        if not hasattr(tonic.datasets, "SSC"):
+            raise AttributeError("tonic.datasets missing SSC dataset class")
+
+        def _build_dataset(split: str):
+            try:
+                return tonic.datasets.SSC(save_to=save_to, train=(split == "train"))
+            except TypeError:
+                return tonic.datasets.SSC(save_to=save_to, split=split)
+
+        train_dataset = _build_dataset("train")
+        test_dataset = _build_dataset("test")
+
+        sensor_size = train_dataset.sensor_size
+        channels = sensor_size[0] if isinstance(sensor_size, tuple) else sensor_size
+
+        train_data = []
+        for events, label in tqdm(train_dataset, desc="SSC train -> dense"):
+            train_data.append((_events_to_dense(events, channels, time_bins), label))
+
+        test_data = []
+        for events, label in tqdm(test_dataset, desc="SSC test -> dense"):
+            test_data.append((_events_to_dense(events, channels, time_bins), label))
+
+        if hasattr(train_dataset, "classes"):
+            num_classes = len(train_dataset.classes)
+        else:
+            num_classes = len({label for _, label in train_data})
+
+        # Save to cache
+        if use_cache:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            torch.save((train_data, test_data, sensor_size, num_classes), cache_path)
+            print(f"Saved SSC cache to {cache_path}")
 
     train_loader = DataLoader(
         DenseSSCDataset(train_data, sensor_size, num_classes),

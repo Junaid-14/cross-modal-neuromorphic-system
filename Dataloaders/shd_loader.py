@@ -5,6 +5,8 @@ Spoken digits encoded through artificial cochlea.
 
 from __future__ import annotations
 
+import os
+from pathlib import Path
 from typing import List, Tuple
 
 import torch
@@ -43,23 +45,53 @@ def _events_to_dense(events) -> torch.Tensor:
     return dense.unsqueeze(1).unsqueeze(1)
 
 
-def get_shd_loaders(batch_size: int = 32, num_workers: int = 2, save_to: str = "./data"):
+def get_shd_loaders(
+    batch_size: int = 32,
+    num_workers: int = 2,
+    save_to: str = "./data",
+    use_cache: bool = True,
+    cache_path: Path | None = None,
+    force_recreate: bool = False,
+) -> Tuple[DataLoader, DataLoader]:
     """
-    Get SHD train and test data loaders.
+    Get SHD train and test data loaders with optional disk caching.
+
+    Args:
+        batch_size: Batch size for training
+        num_workers: Number of worker processes for data loading
+        save_to: Directory to download/store dataset
+        use_cache: If True, use cached converted data if available
+        cache_path: Path to cache file (default: ./data/shd_cache.pt)
+        force_recreate: If True, ignore existing cache and recreate
 
     Returns:
         train_loader, test_loader: PyTorch DataLoader objects
     """
-    train_dataset = tonic.datasets.SHD(save_to=save_to, train=True)
-    test_dataset = tonic.datasets.SHD(save_to=save_to, train=False)
+    if cache_path is None:
+        cache_path = Path(save_to) / "shd_cache.pt"
 
-    train_data = []
-    for events, label in tqdm(train_dataset, desc="SHD train -> dense"):
-        train_data.append((_events_to_dense(events), label))
+    # Try to load from cache
+    if use_cache and not force_recreate and cache_path.exists():
+        print(f"Loading cached SHD data from {cache_path}")
+        train_data, test_data = torch.load(cache_path)
+    else:
+        # Convert from events to dense format
+        train_dataset = tonic.datasets.SHD(save_to=save_to, train=True)
+        test_dataset = tonic.datasets.SHD(save_to=save_to, train=False)
 
-    test_data = []
-    for events, label in tqdm(test_dataset, desc="SHD test -> dense"):
-        test_data.append((_events_to_dense(events), label))
+        train_data = []
+        for events, label in tqdm(train_dataset, desc="SHD train -> dense"):
+            train_data.append((_events_to_dense(events), label))
+
+        test_data = []
+        for events, label in tqdm(test_dataset, desc="SHD test -> dense"):
+            test_data.append((_events_to_dense(events), label))
+
+        # Save to cache
+        if use_cache:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            torch.save((train_data, test_data), cache_path)
+            print(f"Saved SHD cache to {cache_path}")
 
     train_loader = DataLoader(
         DenseSHDDataset(train_data),

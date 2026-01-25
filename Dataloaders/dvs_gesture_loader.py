@@ -5,6 +5,7 @@ Event-based recordings of hand/arm gestures (DVS128 Gesture).
 
 from __future__ import annotations
 
+import os
 from typing import Callable, Tuple
 
 import torch
@@ -28,7 +29,9 @@ def _get_dvs_gesture_dataset_class() -> Callable:
 def get_dvs_gesture_loaders(
     batch_size: int = 16,
     time_steps: int = 25,
-    num_workers: int = 2,
+    num_workers: int | None = None,
+    pin_memory: bool | None = None,
+    persistent_workers: bool = True,
     save_to: str = "./data",
     time_window: int = 1000,
     target_spatial_size: Tuple[int, int] = (128, 128),
@@ -47,6 +50,16 @@ def get_dvs_gesture_loaders(
     Returns:
         train_loader, test_loader: PyTorch DataLoader objects
     """
+    # Auto-detect optimal settings
+    if num_workers is None:
+        num_workers = min(8, os.cpu_count())
+
+    if pin_memory is None:
+        pin_memory = torch.cuda.is_available()
+
+    # Disable persistent_workers for single worker (PyTorch limitation)
+    if num_workers == 0 or num_workers == 1:
+        persistent_workers = False
 
     dataset_cls = _get_dvs_gesture_dataset_class()
     sensor_size = dataset_cls.sensor_size
@@ -62,43 +75,39 @@ def get_dvs_gesture_loaders(
     test_dataset = dataset_cls(save_to=save_to, transform=frame_transform, train=False)
 
     def collate_fn(batch):
+        """Optimized collation function with reduced tensor operations."""
         frames, labels = zip(*batch)
-        batch_size_local = len(frames)
-        first_tensor = torch.as_tensor(frames[0], dtype=torch.float32)
-        if first_tensor.dim() == 4 and first_tensor.shape[1] not in (1, 2):
-            if first_tensor.shape[-1] in (1, 2):
-                first_tensor = first_tensor.permute(0, 3, 1, 2)
-        if target_spatial_size is not None:
-            first_tensor = F.interpolate(
-                first_tensor, size=target_spatial_size, mode="nearest"
-            )
 
-        channels = first_tensor.shape[1]
-        height = first_tensor.shape[2]
-        width = first_tensor.shape[3]
-
-        padded = torch.zeros(
-            batch_size_local, time_steps, channels, height, width, dtype=torch.float32
-        )
-
-        length = min(first_tensor.shape[0], time_steps)
-        padded[0, :length] = first_tensor[:length]
-
-        for idx, frame in enumerate(frames[1:], start=1):
-            frame_tensor = torch.as_tensor(frame, dtype=torch.float32)
-            if frame_tensor.dim() == 4 and frame_tensor.shape[1] not in (1, 2):
-                if frame_tensor.shape[-1] in (1, 2):
-                    frame_tensor = frame_tensor.permute(0, 3, 1, 2)
+        # Helper function to normalize and resize frames
+        def _process_frame(frame):
+            tensor = torch.as_tensor(frame, dtype=torch.float32)
+            # Handle different channel arrangements
+            if tensor.dim() == 4 and tensor.shape[1] not in (1, 2):
+                if tensor.shape[-1] in (1, 2):
+                    tensor = tensor.permute(0, 3, 1, 2)
+            # Resize if needed
             if target_spatial_size is not None:
-                frame_tensor = F.interpolate(
-                    frame_tensor,
-                    size=target_spatial_size,
-                    mode="nearest",
+                tensor = F.interpolate(tensor, size=target_spatial_size, mode="nearest")
+            return tensor
+
+        # Process all frames and pad/truncate to time_steps
+        frames_list = []
+        for f in frames:
+            f_tensor = _process_frame(f)
+            # Pad or truncate to time_steps
+            if f_tensor.shape[0] >= time_steps:
+                frames_list.append(f_tensor[:time_steps])
+            else:
+                padding = torch.zeros(
+                    time_steps - f_tensor.shape[0], *f_tensor.shape[1:], dtype=torch.float32
                 )
-            length = min(frame_tensor.shape[0], time_steps)
-            padded[idx, :length] = frame_tensor[:length]
+                frames_list.append(torch.cat([f_tensor, padding], dim=0))
+
+        # Stack all frames at once (faster than zero-allocation + loop)
+        frames_tensor = torch.stack(frames_list, dim=0)
         labels_tensor = torch.tensor(labels, dtype=torch.long)
-        return padded, labels_tensor
+
+        return frames_tensor, labels_tensor
 
     train_loader = DataLoader(
         train_dataset,
@@ -107,6 +116,8 @@ def get_dvs_gesture_loaders(
         num_workers=num_workers,
         drop_last=True,
         collate_fn=collate_fn,
+        pin_memory=pin_memory,
+        persistent_workers=persistent_workers,
     )
     test_loader = DataLoader(
         test_dataset,
@@ -115,6 +126,8 @@ def get_dvs_gesture_loaders(
         num_workers=num_workers,
         drop_last=False,
         collate_fn=collate_fn,
+        pin_memory=pin_memory,
+        persistent_workers=persistent_workers,
     )
 
     print(
