@@ -8,7 +8,7 @@ from typing import Callable, Dict, Type
 
 import torch.nn as nn
 
-from .model_1_baseline import Model_1_Baseline
+from .baseline import Baseline
 from .model_2_scl import Model_2_SCL
 from .model_3_hopfield import Model_3_Hopfield
 from .model_4_hgrn import Model_4_HGRN
@@ -16,7 +16,7 @@ from .model_5_hybrid import Model_5_Hybrid
 
 
 MODEL_REGISTRY: Dict[str, Type[nn.Module]] = {
-    "baseline": Model_1_Baseline,
+    "baseline": Baseline,
     "scl": Model_2_SCL,
     "hopfield": Model_3_Hopfield,
     "hgrn": Model_4_HGRN,
