@@ -1,0 +1,427 @@
+{
+  "config_name": "baseline_snn",
+  "dataset_name": "N-Caltech101",
+  "modality": "vision",
+  "input_type": "dvs_gesture",
+  "num_classes": 101,
+  "num_runs": 1,
+  "seeds": [
+    42
+  ],
+  "summary": {
+    "accuracy": {
+      "mean": 30.998851894356488,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "temporal_silhouette.t25": {
+      "mean": -0.29977941513061523,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "temporal_silhouette.t50": {
+      "mean": -0.25154754519462585,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "temporal_silhouette.t75": {
+      "mean": -0.2519434094429016,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "temporal_silhouette.t100": {
+      "mean": -0.21808409690856934,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.flops_single_forward": {
+      "mean": 324967781.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.flops_per_sample": {
+      "mean": 324967781.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.params": {
+      "mean": 75887013.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.total_synops_profiled": {
+      "mean": 918230986818.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.mean_synops_per_sample": {
+      "mean": 527113080.836969,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.num_samples_profiled": {
+      "mean": 1742.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.num_batches_profiled": {
+      "mean": 109.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.constants_pj.ann_per_flop": {
+      "mean": 100.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.constants_pj.snn_per_synop": {
+      "mean": 0.1,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ratio": {
+      "mean": 616.5048692853619,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann_energy_pj": {
+      "mean": 32496778100.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn_energy_pj": {
+      "mean": 52711308.0836969,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.parameter_count_match": {
+      "mean": 1.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn_params": {
+      "mean": 75887013.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann_params": {
+      "mean": 75887013.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    }
+  },
+  "temporal_silhouette_summary": {
+    "t25": {
+      "mean": -0.29977941513061523,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "t50": {
+      "mean": -0.25154754519462585,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "t75": {
+      "mean": -0.2519434094429016,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "t100": {
+      "mean": -0.21808409690856934,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    }
+  },
+  "energy_summary": {
+    "energy.ann.flops_single_forward": {
+      "mean": 324967781.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.flops_per_sample": {
+      "mean": 324967781.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.params": {
+      "mean": 75887013.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.total_synops_profiled": {
+      "mean": 918230986818.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.mean_synops_per_sample": {
+      "mean": 527113080.836969,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.num_samples_profiled": {
+      "mean": 1742.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.num_batches_profiled": {
+      "mean": 109.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.constants_pj.ann_per_flop": {
+      "mean": 100.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.constants_pj.snn_per_synop": {
+      "mean": 0.1,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ratio": {
+      "mean": 616.5048692853619,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann_energy_pj": {
+      "mean": 32496778100.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn_energy_pj": {
+      "mean": 52711308.0836969,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.parameter_count_match": {
+      "mean": 1.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn_params": {
+      "mean": 75887013.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann_params": {
+      "mean": 75887013.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    }
+  },
+  "final_specs": {
+    "num_runs": 1,
+    "seeds": [
+      42
+    ],
+    "accuracy": {
+      "mean": 30.998851894356488,
+      "std_dev": 0.0
+    },
+    "temporal_silhouette": {
+      "t25": {
+        "mean": -0.29977941513061523,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      },
+      "t50": {
+        "mean": -0.25154754519462585,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      },
+      "t75": {
+        "mean": -0.2519434094429016,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      },
+      "t100": {
+        "mean": -0.21808409690856934,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      }
+    },
+    "compute_comparison": {
+      "total_synops_vs_total_flops": {
+        "snn_total_synops_profiled": {
+          "mean": 918230986818.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "ann_flops_single_forward": {
+          "mean": 324967781.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      },
+      "mean_synops_vs_mean_flops_per_sample": {
+        "snn_mean_synops_per_sample": {
+          "mean": 527113080.836969,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "ann_flops_per_sample": {
+          "mean": 324967781.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      },
+      "energy_constants_pj": {
+        "ann_per_flop": {
+          "mean": 100.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "snn_per_synop": {
+          "mean": 0.1,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      },
+      "energies_pj": {
+        "ann": {
+          "mean": 32496778100.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "snn": {
+          "mean": 52711308.0836969,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      },
+      "energy_improvement_ratio": {
+        "mean": 616.5048692853619,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      },
+      "fairness": {
+        "parameter_count_match": {
+          "mean": 1.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "snn_params": {
+          "mean": 75887013.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "ann_params": {
+          "mean": 75887013.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      }
+    }
+  },
+  "final_specs_path": "/Users/zainhassan/Desktop/cross-modal-neuromorphic-system/results/baseline_snn__n-caltech101__final_specs.json"
+}

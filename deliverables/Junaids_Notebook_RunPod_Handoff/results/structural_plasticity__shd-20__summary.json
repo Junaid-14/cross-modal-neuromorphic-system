@@ -1,0 +1,427 @@
+{
+  "config_name": "structural_plasticity",
+  "dataset_name": "SHD-20",
+  "modality": "audio",
+  "input_type": "shd",
+  "num_classes": 20,
+  "num_runs": 1,
+  "seeds": [
+    42
+  ],
+  "summary": {
+    "accuracy": {
+      "mean": 72.52650176675242,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "temporal_silhouette.t25": {
+      "mean": -0.05213214084506035,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "temporal_silhouette.t50": {
+      "mean": 0.08722028881311417,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "temporal_silhouette.t75": {
+      "mean": 0.10758797824382782,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "temporal_silhouette.t100": {
+      "mean": 0.10618075728416443,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.flops_single_forward": {
+      "mean": 4602388.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.flops_per_sample": {
+      "mean": 4602388.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.params": {
+      "mean": 2302484.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.total_synops_profiled": {
+      "mean": 25662346424.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.mean_synops_per_sample": {
+      "mean": 11334958.667844523,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.num_samples_profiled": {
+      "mean": 2264.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.num_batches_profiled": {
+      "mean": 142.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.constants_pj.ann_per_flop": {
+      "mean": 100.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.constants_pj.snn_per_synop": {
+      "mean": 0.1,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ratio": {
+      "mean": 406.03482861002783,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann_energy_pj": {
+      "mean": 460238800.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn_energy_pj": {
+      "mean": 1133495.8667844522,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.parameter_count_match": {
+      "mean": 1.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn_params": {
+      "mean": 2302484.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann_params": {
+      "mean": 2302484.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    }
+  },
+  "temporal_silhouette_summary": {
+    "t25": {
+      "mean": -0.05213214084506035,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "t50": {
+      "mean": 0.08722028881311417,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "t75": {
+      "mean": 0.10758797824382782,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "t100": {
+      "mean": 0.10618075728416443,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    }
+  },
+  "energy_summary": {
+    "energy.ann.flops_single_forward": {
+      "mean": 4602388.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.flops_per_sample": {
+      "mean": 4602388.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann.params": {
+      "mean": 2302484.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.total_synops_profiled": {
+      "mean": 25662346424.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.mean_synops_per_sample": {
+      "mean": 11334958.667844523,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.num_samples_profiled": {
+      "mean": 2264.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn.num_batches_profiled": {
+      "mean": 142.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.constants_pj.ann_per_flop": {
+      "mean": 100.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.constants_pj.snn_per_synop": {
+      "mean": 0.1,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ratio": {
+      "mean": 406.03482861002783,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann_energy_pj": {
+      "mean": 460238800.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn_energy_pj": {
+      "mean": 1133495.8667844522,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.parameter_count_match": {
+      "mean": 1.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.snn_params": {
+      "mean": 2302484.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    },
+    "energy.ann_params": {
+      "mean": 2302484.0,
+      "std": 0.0,
+      "std_dev": 0.0,
+      "n": 1,
+      "n_valid": 1
+    }
+  },
+  "final_specs": {
+    "num_runs": 1,
+    "seeds": [
+      42
+    ],
+    "accuracy": {
+      "mean": 72.52650176675242,
+      "std_dev": 0.0
+    },
+    "temporal_silhouette": {
+      "t25": {
+        "mean": -0.05213214084506035,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      },
+      "t50": {
+        "mean": 0.08722028881311417,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      },
+      "t75": {
+        "mean": 0.10758797824382782,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      },
+      "t100": {
+        "mean": 0.10618075728416443,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      }
+    },
+    "compute_comparison": {
+      "total_synops_vs_total_flops": {
+        "snn_total_synops_profiled": {
+          "mean": 25662346424.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "ann_flops_single_forward": {
+          "mean": 4602388.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      },
+      "mean_synops_vs_mean_flops_per_sample": {
+        "snn_mean_synops_per_sample": {
+          "mean": 11334958.667844523,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "ann_flops_per_sample": {
+          "mean": 4602388.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      },
+      "energy_constants_pj": {
+        "ann_per_flop": {
+          "mean": 100.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "snn_per_synop": {
+          "mean": 0.1,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      },
+      "energies_pj": {
+        "ann": {
+          "mean": 460238800.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "snn": {
+          "mean": 1133495.8667844522,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      },
+      "energy_improvement_ratio": {
+        "mean": 406.03482861002783,
+        "std": 0.0,
+        "std_dev": 0.0,
+        "n": 1,
+        "n_valid": 1
+      },
+      "fairness": {
+        "parameter_count_match": {
+          "mean": 1.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "snn_params": {
+          "mean": 2302484.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        },
+        "ann_params": {
+          "mean": 2302484.0,
+          "std": 0.0,
+          "std_dev": 0.0,
+          "n": 1,
+          "n_valid": 1
+        }
+      }
+    }
+  },
+  "final_specs_path": "/Users/zainhassan/Desktop/cross-modal-neuromorphic-system/results/structural_plasticity__shd-20__final_specs.json"
+}

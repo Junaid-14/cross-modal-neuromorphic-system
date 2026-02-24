@@ -1,0 +1,13 @@
+2026-02-24 00:44:34,157 | INFO | Standalone research sweep started.
+2026-02-24 00:44:34,157 | INFO | Working directory: /Users/zainhassan/Desktop/cross-modal-neuromorphic-system
+2026-02-24 00:44:34,157 | INFO | Results directory: /Users/zainhassan/Desktop/cross-modal-neuromorphic-system/results
+2026-02-24 00:44:34,179 | INFO | Using device: mps
+2026-02-24 00:44:34,184 | INFO | Preparing dataset loaders...
+2026-02-24 00:44:34,184 | INFO | Skipping N-Caltech101 loader (not selected).
+2026-02-24 00:48:10,209 | INFO | All dataset loaders are ready.
+2026-02-24 00:48:10,209 | INFO | Starting sweep: config=baseline_snn | dataset=SHD-20 | modality=audio | num_classes=20
+2026-02-24 01:11:29,087 | INFO | Completed sweep: baseline_snn__shd-20 | Acc=73.85 +/- 0.00 | Energy Ratio=405.85 +/- 0.00
+2026-02-24 01:11:29,088 | INFO | Starting sweep: config=structural_plasticity | dataset=SHD-20 | modality=audio | num_classes=20
+2026-02-24 01:35:13,535 | INFO | Completed sweep: structural_plasticity__shd-20 | Acc=72.53 +/- 0.00 | Energy Ratio=406.03 +/- 0.00
+2026-02-24 01:35:13,539 | INFO | Sweep complete. Aggregate JSON: /Users/zainhassan/Desktop/cross-modal-neuromorphic-system/results/research_sweep_results.json
+2026-02-24 01:35:13,539 | INFO | Final specs JSON: /Users/zainhassan/Desktop/cross-modal-neuromorphic-system/results/final_specs.json

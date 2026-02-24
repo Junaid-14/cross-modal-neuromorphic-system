@@ -1,0 +1,16 @@
+numpy<2.0
+pandas
+matplotlib
+seaborn
+ipython
+jupyterlab
+scikit-learn
+tqdm
+h5py
+scipy
+snntorch
+tonic
+wandb
+nbformat
+nbclient
+nbconvert
