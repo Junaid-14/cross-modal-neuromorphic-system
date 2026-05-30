@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Datasets (too large — auto-downloaded by tonic)
+ICONS_M7/datasets/
+*.tar.gz
+
+# Checkpoints (862 MB — use Git LFS or Hugging Face instead)
+ICONS_M7/results/checkpoints/
+
+# Logs
+*.log
+monitor.log
+train.log
+train_*.log
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+
+# Jupyter checkpoints (keep notebooks, ignore checkpoints)
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Large binary files
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5

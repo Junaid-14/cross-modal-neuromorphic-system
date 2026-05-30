@@ -1,0 +1,153 @@
+{
+  "main": {
+    "id": "93ae50b068953aa5",
+    "type": "split",
+    "children": [
+      {
+        "id": "a936a144f832d286",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "accdb80c89015a6f",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "101d6c65345e061d",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 247.5,
+    "collapsed": true
+  },
+  "right": {
+    "id": "033ce4dbe96b6206",
+    "type": "split",
+    "children": [
+      {
+        "id": "8db09ec33eed81e2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "45ab916a8f95b9b9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "lucide-ghost",
+              "title": "backlink"
+            }
+          },
+          {
+            "id": "9d6db8aa50c9e31d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "lucide-ghost",
+              "title": "outgoing-link"
+            }
+          },
+          {
+            "id": "4ab1649828a9fac4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-ghost",
+              "title": "tag"
+            }
+          },
+          {
+            "id": "d46b0195ca30a8cf",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "d7c4d594c8ddebcb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "accdb80c89015a6f",
+  "lastOpenFiles": [
+    "01 - Notes/Datasets.md",
+    "README.md",
+    "01 - Notes/DVS-Gesture Smoke Test.md",
+    "01 - Notes/NeurIPS 2026 — M7 Project Plan.md",
+    "Untitled.canvas",
+    "01 - Notes/M7 Project Overview.md",
+    "01 - Notes/Notebook Guide.md",
+    "01 - Notes/Tri-Modal CL Sequence.md",
+    "01 - Notes/Team Rules & Runbook.md",
+    "00 - Inbox/Tri-Modal CL Sequence.md",
+    "01 - Notes/Experiment Results.md",
+    "00 - Inbox/M7 Project Overview.md",
+    "01 - Notes/Experiment Log.md",
+    "Welcome.md",
+    "04 - Attachments",
+    "03 - References",
+    "02 - Daily",
+    "01 - Notes",
+    "00 - Inbox"
+  ]
+}

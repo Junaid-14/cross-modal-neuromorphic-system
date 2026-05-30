@@ -1,0 +1,17 @@
+ICONS_M7/
+results/
+*.pt
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+
+code/ICONS_M7
+ICONS_M7
+code/reports/
+repomix-output.xml
+.DS_Store
+.obsidian/workspace.json
+code/reports/
+repomix-output.xml
+.DS_Store
+.obsidian/workspace.json
