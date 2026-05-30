@@ -2006,7 +2006,9 @@ np.random.seed(42)
 
 # Build a temporary M7 model with DVS task
 TASKS_SMOKE = {
-    'dvs': {'num_classes': 11, 'type': 'visual_motion'},
+    'nmnist': {'num_classes': 10, 'type': 'visual'},
+    'shd':    {'num_classes': 20, 'type': 'audio'},
+    'dvs':    {'num_classes': 11, 'type': 'visual_motion'},
 }
 
 model_smoke = M7_ContinualAdaptiveModel(tasks=TASKS_SMOKE).to(device)
